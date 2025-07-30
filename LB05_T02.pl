@@ -1,0 +1,157 @@
+/* Student Records for ICT Department, Faculty of Technology, SEUSL */
+
+% -------------------------------
+% Declare dynamic predicates if you plan to modify data
+% -------------------------------
+:- dynamic student/3.
+:- dynamic results/6.
+
+% -------------------------------
+% 1. Student personal details
+% -------------------------------
+student(11021, 'Saman', 'Perera').
+student(11022, 'Mohamed', 'Humaith').
+student(11023, 'Nimal', 'Silva').
+student(11024, 'Viji', 'Kumar').
+student(11025, 'Lasantha', 'Jayamanna').
+student(11026, 'Nimal', 'Silva').
+student(11027, 'Ponnambalam', 'Ramanadan').
+
+% -------------------------------
+% 2. Examination results (IndexNo, UCT31021, SWT31012, CIS31012, SWT31022, NST31022)
+% -------------------------------
+results(11021, 50, 71, 57, 65, 61).
+results(11022, 65, 50, 85, 49, 82).
+results(11023, 100, 85, 100, 89, 76).
+results(11024, 73, 65, 59, 82, 66).
+results(11025, 60, 90, 78, 96, 100).
+
+% -------------------------------
+% 3. Students who sat the exam
+% -------------------------------
+sat_exam(IndexNo) :-
+    results(IndexNo, _, _, _, _, _).
+
+% -------------------------------
+% 4. Students who missed the exam
+% -------------------------------
+missed_exam(IndexNo) :-
+    student(IndexNo, _, _),
+    \+ results(IndexNo, _, _, _, _, _).
+
+% -------------------------------
+% 5. Check if Janaka is a registered student
+% -------------------------------
+is_janaka_student :-
+    ( student(_, 'Janaka', _) ->
+        write('Yes, Janaka is a registered undergraduate')
+    ;   write('No, Janaka is not a registered undergraduate')
+    ).
+
+% -------------------------------
+% 6. List all registered students
+% -------------------------------
+registered_students :-
+    write('Registered undergraduates:'), nl,
+    student(IndexNo, FirstName, LastName),
+    write(IndexNo),
+    write(': '),
+    write(FirstName),
+    write(' '),
+    write(LastName),
+    nl,
+    fail.
+registered_students.
+
+% -------------------------------
+% 7. Index numbers of students with last name Silva
+% -------------------------------
+silva_index_numbers :-
+    findall(IndexNo, student(IndexNo, _, 'Silva'), Indices),
+    write('Index numbers for Silva: '),
+    write(Indices), nl.
+
+% -------------------------------
+% 8. Students who sat the examination
+% -------------------------------
+students_who_sat_exam :-
+    write('Students who sat the exam:'),
+    nl,
+    sat_exam(IndexNo),
+    student(IndexNo, FirstName, LastName),
+    write(FirstName),
+    write(' '),
+    write(LastName),
+    nl,
+    fail.
+
+% -------------------------------
+% 9. Students who missed the examination
+% -------------------------------
+students_who_missed_exam :-
+    write('Students who missed the exam:'),
+    nl,
+    missed_exam(IndexNo),
+    student(IndexNo, FirstName, LastName),
+    write(FirstName),
+    write(' '),
+    write(LastName), nl,
+    fail.
+students_who_missed_exam.
+
+% -------------------------------
+% 10. Check if any student scored 100 in any subject
+% -------------------------------
+any_100_scorer :-
+    ( results(_, 100, _, _, _, _)
+    ; results(_, _, 100, _, _, _)
+    ; results(_, _, _, 100, _, _)
+    ; results(_, _, _, _, 100, _)
+    ; results(_, _, _, _, _, 100)
+    ) ->
+        write('Yes, there are students who scored 100 marks')
+    ;
+        write('No students scored 100 marks').
+
+% -------------------------------
+% 11. Students who scored 100 marks and in which subjects
+% -------------------------------
+students_with_100_marks :-
+    write('Students with perfect scores:'), nl,
+    student(IndexNo, FirstName, LastName),
+    results(IndexNo, UCT, SWT1, CIS, SWT2, NST),
+    (
+        UCT =:= 100 ->
+        write(FirstName),
+        write(' scored 100 in UCT31021'),
+        nl;
+        true
+    ),
+    (
+        SWT1 =:= 100 ->
+        write(FirstName),
+        write(' scored 100 in SWT31012'),
+        nl;
+        true
+    ),
+    (
+        CIS =:= 100 ->
+        write(FirstName),
+        write(' scored 100 in CIS31012'),
+        nl;
+        true
+    ),
+    (
+        SWT2 =:= 100 ->
+        write(FirstName),
+        write(' scored 100 in SWT31022'),
+        nl;
+        true
+    ),
+    (
+        NST =:= 100 ->
+        write(FirstName),
+        write(' scored 100 in NST31022'),
+        nl; true
+    ),
+    fail.

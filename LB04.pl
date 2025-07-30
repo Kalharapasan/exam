@@ -1,0 +1,29 @@
+%Facts about what people like
+likes(jhon,pizza).
+likes(jhon,ice_cream).
+likes(mary,pizza).
+likes(susan,salad).
+
+
+%Rule for conjuction (Both items are liked)
+both_likes(Person,Item1,Item2):-
+    likes(Person,Item1),
+    likes(Person,Item2).
+
+%Rule for disjunction(either item id liked)
+ether_likes(Person,Item1,Item2):-
+    likes(Person,Item1);
+    likes(Person,Item2).
+
+%Rule to list all items john likes
+item_liked_by_john(Item):-
+    likes(john,Item).
+
+likes_both_pizza_and_ice_cream(X):-
+    likes(X,pizza),
+    likes(X,ice_cream).
+
+likes_both_pizza_or_ice_cream(X):-
+    likes(X,pizza);
+    likes(X,ice_cream).
+

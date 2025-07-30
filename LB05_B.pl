@@ -1,0 +1,60 @@
+/* Task 01: List Operations with Colors */
+
+% Declare colors as dynamic to allow updates
+:- dynamic colors/1.
+
+% 1. Create a list of five colors
+colors([red, blue, green, yellow, purple]).
+
+% Helper predicate to handle color addition
+add_color_if_needed :-
+    colors(Colors),
+    ( memberchk(pink, Colors) ->
+        append(Colors, [grey], NewColors)
+    ;   append(Colors, [pink], NewColors)
+    ),
+    retract(colors(Colors)),
+    asserta(colors(NewColors)).
+
+% 2. Check if pink is available
+check_pink :-
+    colors(Colors),
+    ( memberchk(pink, Colors) ->
+        write('Pink is available in the list')
+    ;   write('Pink is not available in the list')
+    ).
+
+% 3. Add pink or grey as needed
+modify_colors :-
+    add_color_if_needed,
+    colors(UpdatedColors),
+    write('Updated colors list: '), write(UpdatedColors), nl.
+
+% 4. Order list in descending order and display last color
+
+display_sorted_last :-
+    colors(Colors),
+    sort(Colors, SortedAsc),
+    reverse(SortedAsc, SortedDesc),
+    last(SortedDesc, LastColor),
+    write('Sorted colors (descending): '),
+    write(SortedDesc), nl,
+    write('Last color in sorted list: '),
+    write(LastColor), nl.
+
+
+% 5. Display number of colors in list
+count_colors :-
+    colors(Colors),
+    length(Colors, Count),
+    write('Number of colors: '), write(Count), nl.
+
+% Main predicate to run all operations
+run_color_tasks :-
+    write('Original colors: '),
+    colors(Colors),
+    write(Colors), nl, nl,
+    check_pink, nl, nl,
+    modify_colors, nl,
+    display_sorted_last, nl,
+    count_colors.

@@ -1,0 +1,44 @@
+%Rules
+respected(X):-
+    teacher(X),
+    hardworking(X),
+
+pass_exam(X):-
+    student(X),
+    studies_hard(X).
+
+graduate(X):-
+    pass_exam(X).
+
+successful(X):-
+    graduate(X),
+    has_job(X).
+
+%user Status checking rule
+user_status(X):-
+    teacher(X),hardworking(X),write(X),write(' iS a hardworking teacher'),nl;
+    successful(X),write(X),write(' is successful student'),nl;
+    has_job(X),write(X),write(' has a job'),nl;
+    graduate(X),write(X),write(' has graduated'),nl;
+    pass_exam(X),write(X),write(' has pass exam'),nl;
+    student(X),studies_hard(X),write(X),write(' is ahardwrking student'),nl;
+    student(X),write(X),write(' is a student'),nl;
+    write(X),write('has no Known status'),nl.
+
+
+%Facts
+student(ali).
+studies_hard(ali).
+has_job(ali).
+
+
+student(kalhara).
+studies_hard(kalhara).
+
+
+teacher(saman).
+hardworking(saman).
+graduate(saman).
+
+
+
