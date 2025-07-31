@@ -1,0 +1,43 @@
+% Tree structure (edges as parent-child relations)
+child(a, b).
+child(a, c).
+child(a, d).
+child(b, e).
+child(b, f).
+child(f, m).
+child(f, l).
+child(e, k).
+child(k, t).
+child(c, g).
+child(c, h).
+child(c, i).
+child(h, n).
+child(n, u).
+child(n, v).
+child(i, o).
+child(d, j).
+child(j, p).
+child(j, q).
+child(j, r).
+child(j, s).
+
+% Get all children of a node as a list
+children(Node, Children) :-
+    findall(Child, child(Node, Child), Children).
+
+% BFS helper
+bfs([], []).
+
+bfs([Head|Tail], [Head|Result]) :-
+    children(Head, Children),
+    append(Tail, Children, NewQueue),
+    bfs(NewQueue, Result).
+
+% DFS helper
+dfs([], []).
+
+dfs([Head|Tail], [Head|Result]) :-
+    children(Head, Children),
+    append(Children, Tail, NewStack),
+    dfs(NewStack, Result).
+
