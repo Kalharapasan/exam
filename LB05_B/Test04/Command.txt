@@ -1,0 +1,6 @@
+sudo docker build -t student-python:v1 .
+
+sudo docker images
+
+sudo docker run -it student-python:v1
+

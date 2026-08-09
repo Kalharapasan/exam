@@ -1,0 +1,37 @@
+cd java-docker-app
+
+docker build -t java-docker-app .
+
+docker images
+
+docker run -p 8080:8080 java-docker-app
+
+http://localhost:8080
+
+Hello from Docker + Java 17!
+
+http://localhost:8080/api/users
+
+[
+  {
+    "id": 1,
+    "name": "Kalhara",
+    "email": "kalhara@gmail.com"
+  },
+  {
+    "id": 2,
+    "name": "Kasun",
+    "email": "kasun@gmail.com"
+  },
+  {
+    "id": 3,
+    "name": "Nimal",
+    "email": "nimal@gmail.com"
+  }
+]
+
+docker ps
+
+docker logs <container_id>
+
+docker stop <container_id>

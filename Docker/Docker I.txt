@@ -1,0 +1,79 @@
+lsb_release -a
+
+docker --version
+
+sudo apt-get update
+
+sudo apt-get upgrade
+
+sudo apt install docker.io
+
+sudo systemctl status docker
+
+sudo docker version
+
+docker
+
+docker image --help
+
+sudo docker info
+
+sudo docker system df
+
+sudo docker system prune
+
+sudo docker stats 
+
+sudo docker search httpd
+
+sudo docker images
+
+sudo docker pull httpd
+
+sudo docker ps
+
+sudo docker p -a
+
+sudo docker create --name [container_name] [image_name]
+
+sudo docker start [container_name]
+
+sudo docker run --name [container_name] [image_name]
+
+sudo docker stop [container_name,container_id]
+
+sudo docker run -d --name webpage3 httpd
+
+sudo docker rm [container_name,container_id]
+
+sudo docker rm -f[container_id,container_name]
+
+sudo docker exec -it [container_id,container_name] /bin/sh 
+
+sudo docker exec -it [container_id,container_name] /bin/bash
+
+cd /bin
+
+ls -lrt
+
+Exit
+
+sudo docker exec [container_id,container_name] username -a
+
+sudo docker exec [container_id,container_name] mkdir/tmp/Kalhara
+
+sudo docker exec [container_id,container_name] ls/tmp
+
+sudo docker cp queson.txt [container_id,container_name]:/tmp
+
+sudo docker exec [container_id,container_name] ls /tmp
+
+sudo docker log [container_name]
+
+sudo docker top [container_name]
+
+sudo touch Dockerfile
+
+sudo docker build -t [container_id]
+
+sudo docker run [container_id,container_name]

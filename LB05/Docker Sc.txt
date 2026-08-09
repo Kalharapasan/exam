@@ -1,0 +1,119 @@
+# 1. Linux OS එකේ (Ubuntu/Debian) විස්තර සහ Version එක බලා ගැනීමට
+lsb_release -a
+
+# 2. Install කර ඇති Docker Version එක පමණක් ක්ෂණිකව බලා ගැනීමට
+docker --version
+
+# 3. OS එකේ Package List එක Update කිරීමට (අලුත් Software සොයා ගැනීමට)
+sudo apt-get update
+
+# 4. Install කර ඇති සියලුම Software අලුත්ම Version වලට Upgrade කිරීමට
+sudo apt-get upgrade
+
+# 5. Ubuntu/Debian වලට Docker Install කර ගැනීමට
+sudo apt install docker.io
+
+# 6. Docker Service එක Active (Running) ද කියා පරීක්ෂා කිරීමට
+sudo systemctl status docker
+
+# 7. Docker Client සහ Server වල සම්පූර්ණ Version විස්තර බලා ගැනීමට
+sudo docker version
+
+# 8. Docker වල භාවිත කළ හැකි මූලික Commands ලැයිස්තුව බලා ගැනීමට
+docker
+
+# 9. Docker Images වලට අදාළ විශේෂ Commands පිළිබඳ උපකාරී විස්තර ලබා ගැනීමට
+docker image --help
+
+# 10. Docker System එකේ සමස්ත තොරතුරු (Containers ගණන, Images, Storage Driver ආදිය) බලා ගැනීමට
+sudo docker info
+
+# 11. Docker මගින් භාවිත කර ඇති Disk ඉඩ ප්‍රමාණය (Disk Usage) බලා ගැනීමට
+sudo docker system df
+
+# 12. භාවිත නොකරන (Unused/Stopped) Containers, Networks සහ Images ඉවත් කර Disk Space නිදහස් කිරීමට
+sudo docker system prune
+
+# 13. ධාවනය වන Containers වල CPU සහ Memory භාවිතය Real-time බලා ගැනීමට
+sudo docker stats
+
+# 14. Docker Hub එකෙන් "httpd" (Apache web server) Images සෙවීමට
+sudo docker search httpd
+
+# 15. Local System එකේ Download කර ඇති සියලුම Docker Images බලා ගැනීමට
+sudo docker images
+
+# 16. Docker Hub එකෙන් "httpd" Image එක Local System එකට Download (Pull) කර ගැනීමට
+sudo docker pull httpd
+
+# 17. දැනට Active (Running) තත්ත්වයේ ඇති Containers පමණක් බලා ගැනීමට
+sudo docker ps
+
+# 18. Running සහ Stopped ඇතුළු සියලුම Containers (All) බලා ගැනීමට
+sudo docker ps -a
+
+# 19. අලුත් Container එකක් සෑදීමට (නමුත් එය Run නොවේ, Create පමණි)
+sudo docker create --name [container_name] [image_name]
+
+# 20. Stop කර ඇති හෝ Create කළ Container එකක් Start කිරීමට
+sudo docker start [container_name]
+
+# 21. Image එකකින් අලුත් Container එකක් සාදා එය එකවර Run කිරීමට
+sudo docker run --name [container_name] [image_name]
+
+# 22. ධාවනය වන Container එකක් තාවකාලිකව නවතා දැමීමට (Stop කිරීමට)
+sudo docker stop [container_name_or_id]
+
+# 23. Background එකේ (Detached mode '-d') Run වන පරිදි "webpage3" නමින් "httpd" Container එකක් Run කිරීමට
+sudo docker run -d --name webpage3 httpd
+
+# 24. Stop කර ඇති Container එකක් සම්පූර්ණයෙන්ම Delete කර දැමීමට
+sudo docker rm [container_name_or_id]
+
+# 25. ධාවනය වන Container එකක් වුවද බලහත්කාරයෙන් (Forcefully '-f') Delete කර දැමීමට
+sudo docker rm -f [container_name_or_id]
+
+# 26. Container එක ඇතුළට ගොස් Shell (/bin/sh) Command Line එක ලබා ගැනීමට
+sudo docker exec -it [container_name_or_id] /bin/sh
+
+# 27. Container එක ඇතුළට ගොස් Bash Shell එක ලබා ගැනීමට
+sudo docker exec -it [container_name_or_id] /bin/bash
+
+# 28. System එකේ /bin Directory/Folder එකට මාරු වීමට
+cd /bin
+
+# 29. Files සහ Folders වල විස්තර කාලානුක්‍රමිකව (List format) බලා ගැනීමට
+ls -lrt
+
+# 30. Container එකෙන් හෝ Terminal එකෙන් ඉවත් වීමට (Exit)
+exit
+
+# 31. Container එක ඇතුළේ 'uname -a' Run කර Container එකේ OS Kernel විස්තර බලා ගැනීමට
+sudo docker exec [container_name_or_id] uname -a
+
+# 32. Container එක ඇතුළේ /tmp path එක තුළ "Kalhara" නමින් Folder එකක් සෑදීමට
+sudo docker exec [container_name_or_id] mkdir /tmp/Kalhara
+
+# 33. Container එකේ /tmp Folder එක ඇතුළේ ඇති Files බලා ගැනීමට
+sudo docker exec [container_name_or_id] ls /tmp
+
+# 34. Computer එකේ ඇති "queson.txt" File එක Container එකේ /tmp path එකට Copy කිරීමට
+sudo docker cp queson.txt [container_name_or_id]:/tmp
+
+# 35. නැවත /tmp Folder එක බලමින් File එක Copy වූවාදැයි තහවුරු කර ගැනීමට
+sudo docker exec [container_name_or_id] ls /tmp
+
+# 36. Container එක තුළ සිදු වූ දේවල Logs (Output History) බලා ගැනීමට
+sudo docker logs [container_name]
+
+# 37. Container එක ඇතුළේ මේ වන විට Run වන Processes බලා ගැනීමට
+sudo docker top [container_name]
+
+# 38. Custom Image එකක් සෑදීමට "Dockerfile" නමින් හිස් File එකක් Create කිරීමට
+sudo touch Dockerfile
+
+# 39. Dockerfile එක භාවිත කරමින් අලුත් Docker Image එකක් Build කිරීමට
+sudo docker build -t [image_name] .
+
+# 40. Build කරගත් අලුත් Image එකෙන් Container එකක් Run කිරීමට
+sudo docker run [image_name]

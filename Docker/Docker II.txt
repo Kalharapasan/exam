@@ -1,0 +1,54 @@
+
+sudo apt-get update
+
+sudo apt-get upgrade
+
+sudo apt install docker.io
+
+docker --version
+
+sudo docker images
+
+sudo docker pull httpd
+
+sudo docker pull httpd:latest
+
+sudo docker pull httpd:2.4.57
+
+sudo docker pull ubuntu 
+
+sudo docker pull ubuntu:lunar-20230816
+
+sudo docker run -d -it  --name [My_container_name] [image_name]
+
+sudo docker inspect [image_id] /[image_name]
+
+sudo docker history [image_id]/[image_name]
+
+sudo docker save [image_id/image_name] > [filename.tar]
+
+sudo docker rmi [image_id/image_name]
+
+sudo docker load -i [filename.tar]
+
+sudo docker run -d -it --name ubuntu-dev  ubuntu:latest
+
+sudo docker exec  -it  ubuntu-dev  /bin/bash
+
+apt-get update
+
+apt-get install python3
+
+sudo docker commit [container_id/container_name]
+
+sudo docker commit [container_id/container_name] release7:1.3
+
+sudo docker run -d -it --name ubuntu-testing-env release7:1.3
+
+sudo docker exec -it ubuntu-testing-env  /bin/bash
+
+sudo docker login
+
+sudo docker tag [release:version] [username]/[release:version]
+
+sudo docker push [username]/[release:version]

@@ -1,0 +1,11 @@
+java-docker-app/
+│
+├── Dockerfile
+├── pom.xml
+└── src/
+    └── main/
+        └── java/
+            └── com/
+                └── example/
+                    └── demo/
+                        └── DemoApplication.java

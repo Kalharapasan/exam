@@ -1,0 +1,324 @@
+lsb_release -a
+
+docker --version
+
+sudo apt-get update
+
+sudo apt-get upgrade
+
+sudo apt install docker.io
+
+sudo systemctl status docker
+
+sudo docker version
+
+docker
+
+docker image --help
+
+sudo docker info
+
+sudo docker system df
+
+sudo docker system prune
+
+sudo docker stats 
+
+sudo docker search httpd
+
+sudo docker images
+
+sudo docker pull httpd
+
+sudo docker ps
+
+sudo docker p -a
+
+sudo docker create --name [container_name] [image_name]
+
+sudo docker start [container_name]
+
+sudo docker run --name [container_name] [image_name]
+
+sudo docker stop [container_name,container_id]
+
+sudo docker run -d --name webpage3 httpd
+
+sudo docker rm [container_name,container_id]
+
+sudo docker rm -f[container_id,container_name]
+
+sudo docker exec -it [container_id,container_name] /bin/sh 
+
+sudo docker exec -it [container_id,container_name] /bin/bash
+
+cd /bin
+
+ls -lrt
+
+Exit
+
+sudo docker exec [container_id,container_name] username -a
+
+sudo docker exec [container_id,container_name] mkdir/tmp/Kalhara
+
+sudo docker exec [container_id,container_name] ls/tmp
+
+sudo docker cp queson.txt [container_id,container_name]:/tmp
+
+sudo docker exec [container_id,container_name] ls /tmp
+
+sudo docker log [container_name]
+
+sudo docker top [container_name]
+
+sudo touch Dockerfile
+
+sudo docker build -t [container_id]
+
+sudo docker run [container_id,container_name]
+
+
+#########################################################################################################################################
+
+# 1. Obage Linux OS (Ubuntu/Debian) pathatha/version thorathuru bala ganīmata
+lsb_release -a
+
+# 2. Inshthāla kara athi Docker version ekama pamaṇak balā gānīmata
+docker --version
+
+# 3. Os eke package list ekama update kirīmata (Software aluth pakhēja soyā gānīmata)
+sudo apt-get update
+
+# 4. Inshthāla kara athi pakhēja aluthma version walata upgrade kirīmata
+sudo apt-get upgrade
+
+# 5. Ubuntu walata Docker inshthāla kirīmata
+sudo apt install docker.io
+
+# 6. Docker service eka krīyāthmaka (active/running) da kinna balā gānīmata
+sudo systemctl status docker
+
+# 7. Docker Client saha Server version dekama wisthara athuwa balā gānīmata
+sudo docker version
+
+# 8. Docker wala thiyena sadhāraṇa commands saha udawu balā gānīmata
+docker
+
+# 9. Docker image ekata aḍāla wū wisēṣa commands monawada balā gānīmata
+docker image --help
+
+# 10. Docker system eka gāna samastha wistharayak (Containers gānana, Images, Storage Driver adhi) balā gānīmata
+sudo docker info
+
+# 11. Docker thula bhāvithā wana disc pramāṇaya (Disk space usage) balā gānīmata
+sudo docker system df
+
+# 12. Bhāvithā nokarana (Unused/Stopped) containers, networks saha images ain kara disc space free kirīmata
+sudo docker system prune
+
+# 13. Denata dhawana wana (Running) containers wala CPU saha Memory bhāvithaya shanthāpitha (real-time) balā gānīmata
+sudo docker stats 
+
+# 14. Docker Hub eken "httpd" (Apache web server) images soyā balā gānīmata
+sudo docker search httpd
+
+# 15. System eka thula ihathadī download kara gatha Docker Images thiyedhai balā gānīmata
+sudo docker images
+
+# 16. Docker Hub eken "httpd" image eka local system ekata download (pull) kara gānīmata
+sudo docker pull httpd
+
+# 17. Dhenata dhawana wana (Currently Running) containers pamaṇak balā gānīmata
+sudo docker ps
+
+# 18. Dhawana wana saha nawathā athi (All: Running + Stopped) siyalu containers balā gānīmata
+sudo docker ps -a
+
+# 19. Aluth container ekak sarasā ganīmata (nawatha run nokara create pamaṇak kirīmata)
+sudo docker create --name [container_name] [image_name]
+
+# 20. Create kara athi ho stop kara athi container ekak start kirīmata
+sudo docker start [container_name]
+
+# 21. Image ekak magin container ekak sarasā ē welāwema eka start (Run) kirīmata
+sudo docker run --name [container_name] [image_name]
+
+# 22. Dhawana wana container ekak thāwkālika nawatha dhāmīmata (Stop kirīmata)
+sudo docker stop [container_name,container_id]
+
+# 23. Background eke (Detached mode '-d') run wana se "webpage3" namathi "httpd" container ekak run kirīmata
+sudo docker run -d --name webpage3 httpd
+
+# 24. Stop kara athi container ekak sampūrṇayenma ain (delete) kirīmata
+sudo docker rm [container_name,container_id]
+
+# 25. Dhawana wana container ekak wuwa balen (Forcefully '-f') delete kara dāmatama
+sudo docker rm -f [container_id,container_name]
+
+# 26. Container ekak thulatsa enter wī Shell (/bin/sh) command line eka labā gānīmata
+sudo docker exec -it [container_id,container_name] /bin/sh 
+
+# 27. Container ekak thulatsa enter wī Bash shell eka labā gānīmata
+sudo docker exec -it [container_id,container_name] /bin/bash
+
+# 28. /bin folder ekata māru wīmata
+cd /bin
+
+# 29. File saha folder wala wisthara ihala wistarātmakawawen saha welāwata anūwa piliwela karalā penwīmata
+ls -lrt
+
+# 30. Container ekena ho Linux terminal ekena eliyata eemata (Exit)
+exit
+
+# 31. Container eka thula 'uname -a' run kara container eke OS details balā gānīmata
+sudo docker exec [container_id,container_name] uname -a
+
+# 32. Container eka thula /tmp path eka athule "Kalhara" namath novel folder ekak hādā gānīmata
+sudo docker exec [container_id,container_name] mkdir /tmp/Kalhara
+
+# 33. Container eke /tmp folder eka thula thiyena file balā gānīmata
+sudo docker exec [container_id,container_name] ls /tmp
+
+# 34. Local computer eke thiyena "queson.txt" file eka container eke /tmp path ekata copy kirīmata
+sudo docker cp queson.txt [container_id,container_name]:/tmp
+
+# 35. Nawatha /tmp eka balā file eka copy unādhai thahawuru kirīmata
+sudo docker exec [container_id,container_name] ls /tmp
+
+# 36. Container eka thula siduwū dē (Logs/Output) balā gānīmata
+sudo docker logs [container_name]
+
+# 37. Container eka thula pratyakṣawama run wana Processes (dhawana wana wæḍasahan) balā gānīmata
+sudo docker top [container_name]
+
+# 38. Dockerfile namin his file ekak create kirīmata (Custom image ekak thānīmata)
+sudo touch Dockerfile
+
+# 39. Dockerfile eka bhāvithā kara aluth Docker Image ekak build kirīmata (-t magin Name/Tag eka dhāy)
+sudo docker build -t [image_name] .
+
+# 40. Build karā gatha image eken container ekak run kirīmata
+sudo docker run [image_name]
+
+#########################################################################################################################################
+
+# 1. Linux OS එකේ (Ubuntu/Debian) විස්තර සහ Version එක බලා ගැනීමට
+lsb_release -a
+
+# 2. Install කර ඇති Docker Version එක පමණක් ක්ෂණිකව බලා ගැනීමට
+docker --version
+
+# 3. OS එකේ Package List එක Update කිරීමට (අලුත් Software සොයා ගැනීමට)
+sudo apt-get update
+
+# 4. Install කර ඇති සියලුම Software අලුත්ම Version වලට Upgrade කිරීමට
+sudo apt-get upgrade
+
+# 5. Ubuntu/Debian වලට Docker Install කර ගැනීමට
+sudo apt install docker.io
+
+# 6. Docker Service එක Active (Running) ද කියා පරීක්ෂා කිරීමට
+sudo systemctl status docker
+
+# 7. Docker Client සහ Server වල සම්පූර්ණ Version විස්තර බලා ගැනීමට
+sudo docker version
+
+# 8. Docker වල භාවිත කළ හැකි මූලික Commands ලැයිස්තුව බලා ගැනීමට
+docker
+
+# 9. Docker Images වලට අදාළ විශේෂ Commands පිළිබඳ උපකාරී විස්තර ලබා ගැනීමට
+docker image --help
+
+# 10. Docker System එකේ සමස්ත තොරතුරු (Containers ගණන, Images, Storage Driver ආදිය) බලා ගැනීමට
+sudo docker info
+
+# 11. Docker මගින් භාවිත කර ඇති Disk ඉඩ ප්‍රමාණය (Disk Usage) බලා ගැනීමට
+sudo docker system df
+
+# 12. භාවිත නොකරන (Unused/Stopped) Containers, Networks සහ Images ඉවත් කර Disk Space නිදහස් කිරීමට
+sudo docker system prune
+
+# 13. ධාවනය වන Containers වල CPU සහ Memory භාවිතය Real-time බලා ගැනීමට
+sudo docker stats
+
+# 14. Docker Hub එකෙන් "httpd" (Apache web server) Images සෙවීමට
+sudo docker search httpd
+
+# 15. Local System එකේ Download කර ඇති සියලුම Docker Images බලා ගැනීමට
+sudo docker images
+
+# 16. Docker Hub එකෙන් "httpd" Image එක Local System එකට Download (Pull) කර ගැනීමට
+sudo docker pull httpd
+
+# 17. දැනට Active (Running) තත්ත්වයේ ඇති Containers පමණක් බලා ගැනීමට
+sudo docker ps
+
+# 18. Running සහ Stopped ඇතුළු සියලුම Containers (All) බලා ගැනීමට
+sudo docker ps -a
+
+# 19. අලුත් Container එකක් සෑදීමට (නමුත් එය Run නොවේ, Create පමණි)
+sudo docker create --name [container_name] [image_name]
+
+# 20. Stop කර ඇති හෝ Create කළ Container එකක් Start කිරීමට
+sudo docker start [container_name]
+
+# 21. Image එකකින් අලුත් Container එකක් සාදා එය එකවර Run කිරීමට
+sudo docker run --name [container_name] [image_name]
+
+# 22. ධාවනය වන Container එකක් තාවකාලිකව නවතා දැමීමට (Stop කිරීමට)
+sudo docker stop [container_name_or_id]
+
+# 23. Background එකේ (Detached mode '-d') Run වන පරිදි "webpage3" නමින් "httpd" Container එකක් Run කිරීමට
+sudo docker run -d --name webpage3 httpd
+
+# 24. Stop කර ඇති Container එකක් සම්පූර්ණයෙන්ම Delete කර දැමීමට
+sudo docker rm [container_name_or_id]
+
+# 25. ධාවනය වන Container එකක් වුවද බලහත්කාරයෙන් (Forcefully '-f') Delete කර දැමීමට
+sudo docker rm -f [container_name_or_id]
+
+# 26. Container එක ඇතුළට ගොස් Shell (/bin/sh) Command Line එක ලබා ගැනීමට
+sudo docker exec -it [container_name_or_id] /bin/sh
+
+# 27. Container එක ඇතුළට ගොස් Bash Shell එක ලබා ගැනීමට
+sudo docker exec -it [container_name_or_id] /bin/bash
+
+# 28. System එකේ /bin Directory/Folder එකට මාරු වීමට
+cd /bin
+
+# 29. Files සහ Folders වල විස්තර කාලානුක්‍රමිකව (List format) බලා ගැනීමට
+ls -lrt
+
+# 30. Container එකෙන් හෝ Terminal එකෙන් ඉවත් වීමට (Exit)
+exit
+
+# 31. Container එක ඇතුළේ 'uname -a' Run කර Container එකේ OS Kernel විස්තර බලා ගැනීමට
+sudo docker exec [container_name_or_id] uname -a
+
+# 32. Container එක ඇතුළේ /tmp path එක තුළ "Kalhara" නමින් Folder එකක් සෑදීමට
+sudo docker exec [container_name_or_id] mkdir /tmp/Kalhara
+
+# 33. Container එකේ /tmp Folder එක ඇතුළේ ඇති Files බලා ගැනීමට
+sudo docker exec [container_name_or_id] ls /tmp
+
+# 34. Computer එකේ ඇති "queson.txt" File එක Container එකේ /tmp path එකට Copy කිරීමට
+sudo docker cp queson.txt [container_name_or_id]:/tmp
+
+# 35. නැවත /tmp Folder එක බලමින් File එක Copy වූවාදැයි තහවුරු කර ගැනීමට
+sudo docker exec [container_name_or_id] ls /tmp
+
+# 36. Container එක තුළ සිදු වූ දේවල Logs (Output History) බලා ගැනීමට
+sudo docker logs [container_name]
+
+# 37. Container එක ඇතුළේ මේ වන විට Run වන Processes බලා ගැනීමට
+sudo docker top [container_name]
+
+# 38. Custom Image එකක් සෑදීමට "Dockerfile" නමින් හිස් File එකක් Create කිරීමට
+sudo touch Dockerfile
+
+# 39. Dockerfile එක භාවිත කරමින් අලුත් Docker Image එකක් Build කිරීමට
+sudo docker build -t [image_name] .
+
+# 40. Build කරගත් අලුත් Image එකෙන් Container එකක් Run කිරීමට
+sudo docker run [image_name]

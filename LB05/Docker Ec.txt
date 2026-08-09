@@ -1,0 +1,119 @@
+# 1. Obage Linux OS (Ubuntu/Debian) pathatha/version thorathuru bala ganīmata
+lsb_release -a
+
+# 2. Inshthāla kara athi Docker version ekama pamaṇak balā gānīmata
+docker --version
+
+# 3. Os eke package list ekama update kirīmata (Software aluth pakhēja soyā gānīmata)
+sudo apt-get update
+
+# 4. Inshthāla kara athi pakhēja aluthma version walata upgrade kirīmata
+sudo apt-get upgrade
+
+# 5. Ubuntu walata Docker inshthāla kirīmata
+sudo apt install docker.io
+
+# 6. Docker service eka krīyāthmaka (active/running) da kinna balā gānīmata
+sudo systemctl status docker
+
+# 7. Docker Client saha Server version dekama wisthara athuwa balā gānīmata
+sudo docker version
+
+# 8. Docker wala thiyena sadhāraṇa commands saha udawu balā gānīmata
+docker
+
+# 9. Docker image ekata aḍāla wū wisēṣa commands monawada balā gānīmata
+docker image --help
+
+# 10. Docker system eka gāna samastha wistharayak (Containers gānana, Images, Storage Driver adhi) balā gānīmata
+sudo docker info
+
+# 11. Docker thula bhāvithā wana disc pramāṇaya (Disk space usage) balā gānīmata
+sudo docker system df
+
+# 12. Bhāvithā nokarana (Unused/Stopped) containers, networks saha images ain kara disc space free kirīmata
+sudo docker system prune
+
+# 13. Denata dhawana wana (Running) containers wala CPU saha Memory bhāvithaya shanthāpitha (real-time) balā gānīmata
+sudo docker stats 
+
+# 14. Docker Hub eken "httpd" (Apache web server) images soyā balā gānīmata
+sudo docker search httpd
+
+# 15. System eka thula ihathadī download kara gatha Docker Images thiyedhai balā gānīmata
+sudo docker images
+
+# 16. Docker Hub eken "httpd" image eka local system ekata download (pull) kara gānīmata
+sudo docker pull httpd
+
+# 17. Dhenata dhawana wana (Currently Running) containers pamaṇak balā gānīmata
+sudo docker ps
+
+# 18. Dhawana wana saha nawathā athi (All: Running + Stopped) siyalu containers balā gānīmata
+sudo docker ps -a
+
+# 19. Aluth container ekak sarasā ganīmata (nawatha run nokara create pamaṇak kirīmata)
+sudo docker create --name [container_name] [image_name]
+
+# 20. Create kara athi ho stop kara athi container ekak start kirīmata
+sudo docker start [container_name]
+
+# 21. Image ekak magin container ekak sarasā ē welāwema eka start (Run) kirīmata
+sudo docker run --name [container_name] [image_name]
+
+# 22. Dhawana wana container ekak thāwkālika nawatha dhāmīmata (Stop kirīmata)
+sudo docker stop [container_name,container_id]
+
+# 23. Background eke (Detached mode '-d') run wana se "webpage3" namathi "httpd" container ekak run kirīmata
+sudo docker run -d --name webpage3 httpd
+
+# 24. Stop kara athi container ekak sampūrṇayenma ain (delete) kirīmata
+sudo docker rm [container_name,container_id]
+
+# 25. Dhawana wana container ekak wuwa balen (Forcefully '-f') delete kara dāmatama
+sudo docker rm -f [container_id,container_name]
+
+# 26. Container ekak thulatsa enter wī Shell (/bin/sh) command line eka labā gānīmata
+sudo docker exec -it [container_id,container_name] /bin/sh 
+
+# 27. Container ekak thulatsa enter wī Bash shell eka labā gānīmata
+sudo docker exec -it [container_id,container_name] /bin/bash
+
+# 28. /bin folder ekata māru wīmata
+cd /bin
+
+# 29. File saha folder wala wisthara ihala wistarātmakawawen saha welāwata anūwa piliwela karalā penwīmata
+ls -lrt
+
+# 30. Container ekena ho Linux terminal ekena eliyata eemata (Exit)
+exit
+
+# 31. Container eka thula 'uname -a' run kara container eke OS details balā gānīmata
+sudo docker exec [container_id,container_name] uname -a
+
+# 32. Container eka thula /tmp path eka athule "Kalhara" namath novel folder ekak hādā gānīmata
+sudo docker exec [container_id,container_name] mkdir /tmp/Kalhara
+
+# 33. Container eke /tmp folder eka thula thiyena file balā gānīmata
+sudo docker exec [container_id,container_name] ls /tmp
+
+# 34. Local computer eke thiyena "queson.txt" file eka container eke /tmp path ekata copy kirīmata
+sudo docker cp queson.txt [container_id,container_name]:/tmp
+
+# 35. Nawatha /tmp eka balā file eka copy unādhai thahawuru kirīmata
+sudo docker exec [container_id,container_name] ls /tmp
+
+# 36. Container eka thula siduwū dē (Logs/Output) balā gānīmata
+sudo docker logs [container_name]
+
+# 37. Container eka thula pratyakṣawama run wana Processes (dhawana wana wæḍasahan) balā gānīmata
+sudo docker top [container_name]
+
+# 38. Dockerfile namin his file ekak create kirīmata (Custom image ekak thānīmata)
+sudo touch Dockerfile
+
+# 39. Dockerfile eka bhāvithā kara aluth Docker Image ekak build kirīmata (-t magin Name/Tag eka dhāy)
+sudo docker build -t [image_name] .
+
+# 40. Build karā gatha image eken container ekak run kirīmata
+sudo docker run [image_name]
